@@ -71,14 +71,14 @@ const pointInCircle = (circle_x: number, circle_y: number, rad: number, x: numbe
     else return false;
 };
 
-export class BoidQuadTree {
+export class QuadTree {
     boundary: Rectangle;
 
     split: boolean;
-    topLeftQuad: BoidQuadTree | undefined;
-    topRightQuad: BoidQuadTree | undefined;
-    bottomLeftQuad: BoidQuadTree | undefined;
-    bottomRightQuad: BoidQuadTree | undefined;
+    topLeftQuad: QuadTree | undefined;
+    topRightQuad: QuadTree | undefined;
+    bottomLeftQuad: QuadTree | undefined;
+    bottomRightQuad: QuadTree | undefined;
     points: Vec2[];
     capacity: number;
 
@@ -93,16 +93,16 @@ export class BoidQuadTree {
         const { x1, y1, x2, y2 } = this.boundary;
         const middlePoint = createVec2(x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2);
 
-        const topLeftQuad = new BoidQuadTree(new Rectangle(x1, y1, middlePoint.x, middlePoint.y));
+        const topLeftQuad = new QuadTree(new Rectangle(x1, y1, middlePoint.x, middlePoint.y));
         this.topLeftQuad = topLeftQuad;
 
-        const topRightQuad = new BoidQuadTree(new Rectangle(middlePoint.x, y1, x2, middlePoint.y));
+        const topRightQuad = new QuadTree(new Rectangle(middlePoint.x, y1, x2, middlePoint.y));
         this.topRightQuad = topRightQuad;
 
-        const bottomLeftQuad = new BoidQuadTree(new Rectangle(x1, middlePoint.y, middlePoint.x, y2));
+        const bottomLeftQuad = new QuadTree(new Rectangle(x1, middlePoint.y, middlePoint.x, y2));
         this.bottomLeftQuad = bottomLeftQuad;
 
-        const bottomRightQuad = new BoidQuadTree(new Rectangle(middlePoint.x, middlePoint.y, x2, y2));
+        const bottomRightQuad = new QuadTree(new Rectangle(middlePoint.x, middlePoint.y, x2, y2));
         this.bottomRightQuad = bottomRightQuad;
 
         this.split = true;
