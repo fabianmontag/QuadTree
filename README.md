@@ -1,6 +1,9 @@
 # QuadTree
 Typescript QuadTree Implementation
 
+# Installtion
+ou can find the TypeScript module file within the `./src` folder of the repository.
+
 # Usage
 
 ### Import
