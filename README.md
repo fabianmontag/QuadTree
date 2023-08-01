@@ -52,4 +52,4 @@ interface Vec2 {
 ```
 
 # Showcase
-There is a visual showcase of the working algorithm at [fabianmontag.github.io/QuadTree](https://fabianmontag.github.io/QuadTree/)https://fabianmontag.github.io/QuadTree.
+There is a visual showcase of the working algorithm [here](https://fabianmontag.github.io/QuadTree/).
