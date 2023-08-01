@@ -128,7 +128,7 @@ export class QuadTree {
         }
     }
 
-    getNearbyPointsInRectangleRadius(b: Vec2, radius: number): Vec2[] {
+    getNearbyPointsInRectangle(b: Vec2, radius: number): Vec2[] {
         const radiusRectangle = new Rectangle(b.x - radius, b.y - radius, b.x + radius, b.y + radius);
 
         const points: Vec2[] = [];
@@ -139,17 +139,17 @@ export class QuadTree {
             }
 
             if (this.split) {
-                points.push(...this.topLeftQuad!.getNearbyPointsInRectangleRadius(b, radius));
-                points.push(...this.topRightQuad!.getNearbyPointsInRectangleRadius(b, radius));
-                points.push(...this.bottomLeftQuad!.getNearbyPointsInRectangleRadius(b, radius));
-                points.push(...this.bottomRightQuad!.getNearbyPointsInRectangleRadius(b, radius));
+                points.push(...this.topLeftQuad!.getNearbyPointsInRectangle(b, radius));
+                points.push(...this.topRightQuad!.getNearbyPointsInRectangle(b, radius));
+                points.push(...this.bottomLeftQuad!.getNearbyPointsInRectangle(b, radius));
+                points.push(...this.bottomRightQuad!.getNearbyPointsInRectangle(b, radius));
             }
         }
 
         return points;
     }
 
-    getNearbyPointsInCircleRadius(b: Vec2, radius: number): Vec2[] {
+    getNearbyPointsInCircle(b: Vec2, radius: number): Vec2[] {
         const points: Vec2[] = [];
 
         if (this.boundary.intersectsWithCircle(b.x, b.y, radius)) {
@@ -158,10 +158,10 @@ export class QuadTree {
             }
 
             if (this.split) {
-                points.push(...this.topLeftQuad!.getNearbyPointsInCircleRadius(b, radius));
-                points.push(...this.topRightQuad!.getNearbyPointsInCircleRadius(b, radius));
-                points.push(...this.bottomLeftQuad!.getNearbyPointsInCircleRadius(b, radius));
-                points.push(...this.bottomRightQuad!.getNearbyPointsInCircleRadius(b, radius));
+                points.push(...this.topLeftQuad!.getNearbyPointsInCircle(b, radius));
+                points.push(...this.topRightQuad!.getNearbyPointsInCircle(b, radius));
+                points.push(...this.bottomLeftQuad!.getNearbyPointsInCircle(b, radius));
+                points.push(...this.bottomRightQuad!.getNearbyPointsInCircle(b, radius));
             }
         }
 
