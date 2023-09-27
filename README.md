@@ -51,5 +51,5 @@ interface Vec2 {
 }
 ```
 
-# Showcase
+# Demo
 There is a visual showcase of the working algorithm [here](https://fabianmontag.github.io/QuadTree/).
